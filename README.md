@@ -3,6 +3,8 @@
 ## Padrões para o Desenvolvimento
 
 ### Ícones
+
+A lista de ícones a seguir deve ser respeitada na decoração de botões dos Formulários e links de ação das Consultas (Listagem de Dados):
 | Operação | Nome      | Cor
 |-------------|-----------|-----:
 | Edição      | fa-pencil | Blue
@@ -13,18 +15,29 @@
 | Sair/Cancelar | fa-ban | Red
 
 ### Nome de Colunas
+Nas Consultas (Listagem de Dados), precisamos gerar uma coluna virtual no SQL para ancorar um link. Siga a nomenclatura a seguir para criar essas colunas:
 | Operação | Nome
 |--------|-----
 | Edição | link_edit
 | Exclusão | link_delete
 
+Exemplo:
+
+```sql
+SELECT
+  '' AS link_edit,
+  '' AS link_delete,
+  -- demais colunas
+FROM tabela
+```
+
 ### Comandos na Consulta
+Nas Consultas (Listagem de Dados), temos os comandos SQL para fazer a exclusão do registro selecionado. Use a nomenclatura abaixo para adicionar o comando:
 | Operação | Nome
 |------------|-----
 | Delete  | CmdDelete
 
 ### Botões do Formulário
-
 O botão de ação do Formulário (OK, Salvar, Confirmar) deve ficar alinhado à direita, e o botão de Fechar/Cancelar a esquerda.
 
 _NOTA: A decisão sobre o alinhamento dos botões tem como base o __Diagrama de Gutenberg__, que indica um padrão de leitura em "Z" do usuário, onde o ponto de inicial é o canto superior esquerdo e o ponto final da leitura (e de maior atenção) é o inferior direito. Mais informações [neste link](https://medium.com/ux-user-experience-design-em-portugues/padroes-de-leitura-na-web-a-experiencia-de-escanear-informacao-76d0a846c35a)_
